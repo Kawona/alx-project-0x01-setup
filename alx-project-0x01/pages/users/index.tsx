@@ -3,23 +3,23 @@ import UserCard from '@/components/common/UserCard';
 import { UserProps } from '../../interfaces';
 
 const UsersPage: React.FC = () => {
-  const [users, setUsers] = useState<UserProps[]>([]);
+  const [posts, setPosts] = useState<UserProps[]>([]);
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      const res = await fetch('https://jsonplaceholder.typicode.com/users');
+    const fetchPosts = async () => {
+      const res = await fetch('https://jsonplaceholder.typicode.com/posts');
       const data = await res.json();
-      setUsers(data);
+      setPosts(data);
     };
 
-    fetchUsers();
+    fetchPosts();
   }, []);
 
   return (
     <div>
-      <h1>Users</h1>
-      {users.map((user) => (
-        <UserCard key={user.id} {...user} />
+      <h1>Posts</h1>
+      {posts.map((post) => (
+        <UserCard key={post.id} {...post} />
       ))}
     </div>
   );
