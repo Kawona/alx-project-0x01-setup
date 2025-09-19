@@ -4,7 +4,7 @@ export interface UserProps {
   name: string;
   title: string;
   body: string;
-   email: string;
+  email: string;
   address: {
     street: string;
     suite: string;
