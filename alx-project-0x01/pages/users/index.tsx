@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import UserCard from '@/components/common/UserCard';
-import { UserProps } from '../../interfaces';
+import PostCard from '@/components/common/PostCard';
+import { PostData } from '@/interfaces';
 
-const UsersPage: React.FC = () => {
-  const [posts, setPosts] = useState<UserProps[]>([]);
+const PostsPage: React.FC = () => {
+  const [posts, setPosts] = useState<PostData[]>([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -19,10 +19,10 @@ const UsersPage: React.FC = () => {
     <div>
       <h1>Posts</h1>
       {posts.map((post) => (
-        <UserCard key={post.id} {...post} />
+        <PostCard key={post.id} {...post} />
       ))}
     </div>
   );
 };
 
-export default UsersPage;
+export default PostsPage;
